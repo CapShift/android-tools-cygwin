@@ -51,7 +51,7 @@ add_compile_definitions(pread64=pread)
 add_compile_definitions(pwrite64=pwrite)
 add_compile_definitions(PATH_MAX=__PATH_MAX)
 
-include_directories(/usr/include/linux_compat)
+include_directories(/usr/include/linux_compat/include)
 
 set(android-vendored
 	avb
