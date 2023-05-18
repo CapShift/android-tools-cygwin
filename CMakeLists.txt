@@ -31,7 +31,7 @@ set(ANDROID_VENDOR android-tools)
 # patching, building and installing the software.
 set(ANDROID_PATCH_DIR ${CMAKE_CURRENT_SOURCE_DIR}/patches)
 add_subdirectory(vendor)
-include_directories(/usr/include/linux_compat)
+include_directories(/usr/include/linux_compat/include)
 
 # CPack configuration for creating source tarballs which already include
 # patched versions of the vendored dependencies.
