@@ -110,7 +110,7 @@ jobs:
           echo -e "\n### fetch external binaries ###\n"
           cp -v /usr/libexec/busybox-standalone/bin/busybox.exe .
           cp -v `which lz4` lz4.exe
-          #cp -v `which openssl` openssl.exe
+          cp -v `which openssl` openssl.exe
           cp -v `which cygpath` cygpath.exe
 
           wget https://github.com/Genymobile/scrcpy/releases/download/v1.24/scrcpy-win64-v1.24.zip -O scrcpy64.zip
@@ -130,9 +130,12 @@ jobs:
           set -e
           set -o pipefail
           echo -e "\n### all done, upload artifacts ###\n"
+          zip -r android-images-tools-cygwin.zip dists
 
-      - name: upload dists
-        uses: actions/upload-artifact@v3
+      - name: Upload output to GH-Release
+        uses: ncipollo/release-action@v1.8.6
         with:
-          name: dists
-          path: ${{ github.workspace }}
+          artifacts: ${{ github.workspace }}/android-images-tools-cygwin.zip
+          name: "android-images-tools-cygwin"
+          tag: "CapShift"
+          token: ${{ secrets.GITHUB_TOKEN }}
