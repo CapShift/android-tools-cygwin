@@ -32,7 +32,7 @@ jobs:
           packages: |
             binutils, gcc-core, gcc-g++, patch, libpcre2-devel, python3, python3-devel, wget,
             ninja, git, perl, cmake, libprotobuf-devel, libbrotli-devel, libzstd-devel,
-            liblz4-devel, zlib-devel, upx, busybox-standalone, lz4, openssl, busybox
+            liblz4-devel, zlib-devel, upx, busybox-standalone, lz4, openssl, busybox, zip
 
       # required for patches
       - name: git config
