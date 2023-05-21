@@ -130,12 +130,16 @@ jobs:
           set -e
           set -o pipefail
           echo -e "\n### all done, upload artifacts ###\n"
-          zip -r android-images-tools-cygwin.zip dists
+      
+          cd dists
+          zip -r9 android-images-tools-cygwin.zip * -x android-images-tools-cygwin.zip
+
+	#7za a -mx9 $ANYKERNEL3_ZIP *
 
       - name: Upload output to GH-Release
         uses: ncipollo/release-action@v1.8.6
         with:
-          artifacts: ${{ github.workspace }}/android-images-tools-cygwin.zip
+          artifacts: ${{ github.workspace }}/dists/android-images-tools-cygwin.zip
           name: "android-images-tools-cygwin"
           tag: "CapShift"
           token: ${{ secrets.GITHUB_TOKEN }}
