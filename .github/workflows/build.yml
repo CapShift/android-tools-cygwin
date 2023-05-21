@@ -134,7 +134,7 @@ jobs:
           cd dists
           zip -r9 android-images-tools-cygwin.zip * -x android-images-tools-cygwin.zip
 
-	
+
 
       - name: Upload output to GH-Release
         uses: ncipollo/release-action@v1.8.6
